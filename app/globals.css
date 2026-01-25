@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    /* -- Backgrounds -- */
+    --bg-primary: #ffffff; /* พื้นหลังส่วนใหญ่สีขาว */
+    --bg-secondary: #f9f9f9; /* พื้นหลังส่วนรอง */
+    
+    /* Gradients สำหรับ Backgrounds ที่มี 4 สี */
+    --bg-grad-four-colors: linear-gradient(to right, #90caf9, #ffc1e3, #ce93d8, #fff59d); /* ฟ้า -> ชมพู -> ม่วง -> เหลือง */
+    --bg-grad-four-colors-diagonal: linear-gradient(to bottom right, #90caf9, #ffc1e3, #ce93d8, #fff59d); /* แบบเฉียง */
+  
+  
+    /* -- Text Colors -- */
+    --text-primary: #333333; /* ข้อความหลัก (สีเทาเข้ม) */
+    --text-secondary: #707070; /* ข้อความรอง/คำอธิบาย */
+    --text-light: #b0b0b0;   /* ข้อความที่จางลง */
+  
+    /* -- Accent/Brand Colors (Pastel Palette) -- */
+    --color-pastel-blue: #90caf9;    /* ฟ้าพาสเทล */
+    --color-pastel-pink: #ffc1e3;    /* ชมพูพาสเทล */
+    --color-pastel-purple: #ce93d8;  /* ม่วงพาสเทล */
+    --color-pastel-yellow: #fff59d;  /* เหลืองพาสเทล */
+    
+    /* -- UI Elements -- */
+    --border-color: #e0e0e0; /* เส้นขอบที่ดูสะอาดตา */
+    --button-bg: #333333;    /* พื้นหลังปุ่มหลัก */
+    --button-text: #ffffff;  /* สีตัวอักษรบนปุ่ม */
+  }
+  
+  /* ตัวอย่างการใช้งาน Background Gradient 4 สี กับส่วน Header */
+  .site-header {
+    background-image: var(--bg-grad-four-colors); /* ใช้งาน gradient 4 สี */
+    padding: 40px 20px;
+    text-align: center;
+  }
