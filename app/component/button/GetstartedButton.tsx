@@ -1,32 +1,23 @@
+'use client';
+
 import React from 'react';
 
-interface GetstartedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface GetStartedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
 }
 
-export default function GetstartedButton({ 
-  children, 
-  className = '', 
-  ...props 
-}: GetstartedButtonProps) {
+export default function GetStartedButton({
+  children = 'Get started',
+  className = '',
+  ...props
+}: GetStartedButtonProps) {
   return (
     <button
-      className={`
-        px-6 py-2 
-        bg-[#ce93d8] 
-        text-white 
-        border-2 
-        border-purple-300 
-        rounded-full 
-        font-medium 
-        hover:bg-[#ba6bc4] 
-        transition-colors 
-        duration-200
-        ${className}
-      `}
+      type="button"
+      className={`mt-4 w-full h-12 px-6 flex items-center justify-center bg-black text-white border-2 border-black rounded-full font-medium hover:bg-gray-800 hover:border-gray-800 transition-colors duration-200 ${className}`}
       {...props}
     >
-      {children || 'Getstarted'}
+      {children}
     </button>
   );
 }

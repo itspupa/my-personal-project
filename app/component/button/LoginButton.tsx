@@ -12,14 +12,15 @@ export default function LoginButton({
   return (
     <button
       className={`
-        px-6 py-2 
-        bg-[#ce93d8] 
+        h-12 px-6 flex items-center justify-center
+        bg-black 
         text-white 
         border-2 
-        border-purple-300 
+        border-black 
         rounded-full 
         font-medium 
-        hover:bg-[#ba6bc4] 
+        hover:bg-gray-800 
+        hover:border-gray-800
         transition-colors 
         duration-200
         ${className}
