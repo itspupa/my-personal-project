@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import SearchBar from './SearchBar';
 import LoginButton from './button/LoginButton';
 import SignUpButton from './button/SignUpButton';
@@ -18,7 +19,9 @@ export default function Navbar() {
         <div className="w-32 shrink-0" />
         <div className="flex items-center gap-2 shrink-0">
           <SignUpButton href="/register" />
-          <LoginButton />
+          <Link href="/login">
+            <LoginButton />
+          </Link>
         </div>
       </nav>
       <section className="min-h-[40vh] w-full flex items-center justify-center px-6 py-16">

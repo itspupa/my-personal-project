@@ -2,7 +2,7 @@
 
 import React from 'react';
 import FormInput from '../input/FormInput';
-import GetStartedButton from '../button/GetStartedButton';
+import GetStartedButton from '../button/GetstartedButton';
 import SocialSignUp from './SocialSignUp';
 import ForgotPassword from './ForgotPassword';
 import AlreadyHaveAccount from './AlreadyHaveAccount';

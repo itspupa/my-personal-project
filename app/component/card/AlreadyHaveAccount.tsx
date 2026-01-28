@@ -10,7 +10,7 @@ interface AlreadyHaveAccountProps {
 
 export default function AlreadyHaveAccount({ loginHref = '/login', className = '' }: AlreadyHaveAccountProps) {
   return (
-    <div className={`text-center pt-4 mt-4 border-t border-gray-200/60 ${className}`}>
+    <div className={`text-center pt-4 mt-4 ${className}`}>
       <span className="text-sm text-[var(--text-secondary)]">Already have an account? </span>
       <Link
         href={loginHref}
