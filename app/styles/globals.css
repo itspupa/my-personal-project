@@ -10,6 +10,13 @@
     /* Gradients สำหรับ Backgrounds ที่มี 4 สี */
     --bg-grad-four-colors: linear-gradient(to right, #90caf9, #ffc1e3, #ce93d8, #fff59d); /* ฟ้า -> ชมพู -> ม่วง -> เหลือง */
     --bg-grad-four-colors-diagonal: linear-gradient(to bottom right, #90caf9, #ffc1e3, #ce93d8, #fff59d); /* แบบเฉียง */
+    /* คลื่นสีผสม - layered radial gradients (สีเท่าๆ กัน) */
+    --bg-grad-waves: radial-gradient(ellipse 110% 85% at 5% 15%, rgba(144,202,249,0.7) 0%, transparent 55%),
+      radial-gradient(ellipse 95% 95% at 95% 85%, rgba(255,193,227,0.7) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 90% at 75% 15%, rgba(206,147,216,0.5) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 100% at 15% 75%, rgba(255,245,157,0.7) 0%, transparent 55%),
+      radial-gradient(ellipse 85% 85% at 50% 50%, rgba(144,202,249,0.35) 0%, transparent 50%),
+      linear-gradient(160deg, #90caf9 0%, #ffc1e3 25%, #ce93d8 50%, #fff59d 75%, #90caf9 100%);
   
   
     /* -- Text Colors -- */
