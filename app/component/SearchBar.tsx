@@ -28,7 +28,7 @@ export default function SearchBar({
   return (
     <div className={`relative flex items-center w-full max-w-lg ${className}`}>
       {/* Main Container */}
-      <div className="group flex items-center w-full bg-[#F5F5F5] hover:bg-white rounded-full shadow-sm border-0 hover:border-2 hover:border-purple-300 overflow-hidden">
+      <div className="group flex items-center w-full bg-[#F5F5F5] hover:bg-white rounded-full shadow-sm border border-transparent hover:border-purple-300 overflow-hidden">
         {/* Input Field */}
         <input
           type="text"
