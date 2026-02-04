@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import NotificationIcon from './NotificationIcon';
+import NotificationIcon from './Notification/NotificationIcon';
 import Profile from './Profile';
 import UserDropdown from './dropdown/UserDropdown';
 
