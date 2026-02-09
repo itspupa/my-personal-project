@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface CourseCardProps {
+  id: number;
   image: string;
   category: string;
   title: string;
@@ -13,6 +15,7 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({
+  id,
   image,
   category,
   title,
@@ -21,7 +24,8 @@ export default function CourseCard({
   date,
 }: CourseCardProps) {
   return (
-    <article className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200">
+    <Link href={`/course/${id}`}>
+    <article className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer">
       {/* Image */}
       <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
         <Image
@@ -72,5 +76,6 @@ export default function CourseCard({
         </div>
       </div>
     </article>
+    </Link>
   );
 }

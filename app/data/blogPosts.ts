@@ -38,7 +38,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=800&h=600&fit=crop',
     category: 'Cat',
     title: 'The Science of the Cat\'s Purr: How It Benefits Cats and Humans Alike',
     description: 'Discover the fascinating science behind the cat\'s purr, including its potential healing properties for both cats and humans. Learn how this unique sound is produced and why it matters.',
@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1534361960057-19889dbdf1bb?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=800&h=600&fit=crop',
     category: 'Cat',
     title: 'Caring for Senior Cats: A Guide to Their Golden Years',
     description: 'As cats age, their needs change. This comprehensive guide covers everything you need to know about caring for senior cats, from diet adjustments to health monitoring.',

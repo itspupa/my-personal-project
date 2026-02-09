@@ -2,7 +2,7 @@
 
 import React from 'react';
 import CourseCard from './card/CourseCard';
-import { blogPosts } from '../data/blogPosts';
+import { coursePosts } from '../data/coursePosts';
 
 export default function CourseSection() {
   return (
@@ -15,9 +15,10 @@ export default function CourseSection() {
 
         {/* Courses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.slice(0, 6).map((post) => (
+          {coursePosts.slice(0, 6).map((post) => (
             <CourseCard
               key={post.id}
+              id={post.id}
               image={post.image}
               category={post.category}
               title={post.title}
