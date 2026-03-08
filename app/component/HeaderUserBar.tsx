@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import NotificationIcon from './Notification/NotificationIcon';
+import NotificationBell from './Notification/NotificationBell';
 import Profile from './Profile';
 import UserDropdown from './dropdown/UserDropdown';
 
@@ -18,7 +18,7 @@ export default function HeaderUserBar({
 }: HeaderUserBarProps) {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
-      <NotificationIcon />
+      <NotificationBell />
       <UserDropdown
         trigger={
           <Profile

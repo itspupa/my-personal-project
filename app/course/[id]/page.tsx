@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -18,14 +18,50 @@ export default function CourseDetailPage() {
   const params = useParams();
   const id = Number(params.id);
   const [showModal, setShowModal] = useState(false);
-  const isLoggedIn = false; // TODO: replace with real auth check
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const checkAuth = async () => {
+      try {
+        const res = await fetch('/api/profile', { credentials: 'include' });
+        if (!isMounted) return;
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            setIsLoggedIn(true);
+            return;
+          }
+        }
+        setIsLoggedIn(false);
+      } catch {
+        if (isMounted) {
+          setIsLoggedIn(false);
+        }
+      }
+    };
+
+    checkAuth();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    // ถ้า login แล้ว แต่ modal ยังเปิดอยู่ ให้ปิดทันที
+    if (isLoggedIn && showModal) {
+      setShowModal(false);
+    }
+  }, [isLoggedIn, showModal]);
 
   const handleLike = () => {
     if (!isLoggedIn) {
       setShowModal(true);
       return;
     }
-    // TODO: handle like logic
+    // TODO: handle like logic สำหรับคนที่ล็อกอินแล้ว
   };
 
   const handleCommentSubmit = (comment: string) => {
@@ -147,7 +183,9 @@ export default function CourseDetailPage() {
               <CommentInput
                 placeholder="Write how you feel in a gest..."
                 onSubmit={handleCommentSubmit}
-                onFocus={() => { if (!isLoggedIn) setShowModal(true); }}
+                onFocus={() => {
+                  if (!isLoggedIn) setShowModal(true);
+                }}
               />
 
               <div className="mt-4 space-y-0 divide-y divide-gray-100">
