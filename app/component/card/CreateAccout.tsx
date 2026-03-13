@@ -7,6 +7,7 @@ import GetStartedButton from '../button/GetstartedButton';
 import SocialSignUp from './SocialSignUp';
 import ForgotPassword from './ForgotPassword';
 import AlreadyHaveAccount from './AlreadyHaveAccount';
+import RegistrationSuccessModal from '../modal/RegistrationSuccessModal';
 
 interface CreateAccountCardProps {
   title?: string;
@@ -23,6 +24,7 @@ export default function CreateAccout({
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +48,7 @@ export default function CreateAccout({
         return;
       }
 
-      router.push('/homepages');
+      setShowSuccess(true);
     } catch {
       setError('Something went wrong. Please try again.');
     } finally {
@@ -55,62 +57,72 @@ export default function CreateAccout({
   };
 
   return (
-    <div className="w-full max-w-md rounded-3xl bg-white/90 shadow-xl border border-gray-200/60 backdrop-blur-sm px-8 py-10">
-      <div className="mb-8 text-center">
-        <h2 className="text-2xl font-bold text-[var(--text-primary)]">
-          {title}
-        </h2>
-        <p className="mt-2 text-sm text-[var(--text-secondary)]">
-          {subtitle}
-        </p>
+    <>
+      <div className="w-full max-w-md rounded-3xl bg-white/90 shadow-xl border border-gray-200/60 backdrop-blur-sm px-8 py-10">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl font-bold text-[var(--text-primary)]">
+            {title}
+          </h2>
+          <p className="mt-2 text-sm text-[var(--text-secondary)]">
+            {subtitle}
+          </p>
+        </div>
+
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          {error && (
+            <div className="p-3 text-sm text-red-600 bg-red-50 rounded-xl border border-red-200">
+              {error}
+            </div>
+          )}
+
+          <FormInput
+            type="text"
+            label="Your name"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+
+          <FormInput
+            type="email"
+            label="Email"
+            placeholder="you@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <FormInput
+            type="password"
+            label="Password"
+            placeholder="••••••••"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength={6}
+          />
+
+          <ForgotPassword />
+
+          <GetStartedButton type="submit" disabled={loading}>
+            {loading ? 'Creating account...' : 'Get started'}
+          </GetStartedButton>
+
+          <SocialSignUp />
+        </form>
+
+        <AlreadyHaveAccount />
       </div>
 
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        {error && (
-          <div className="p-3 text-sm text-red-600 bg-red-50 rounded-xl border border-red-200">
-            {error}
-          </div>
-        )}
-
-        <FormInput
-          type="text"
-          label="Your name"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-
-        <FormInput
-          type="email"
-          label="Email"
-          placeholder="you@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <FormInput
-          type="password"
-          label="Password"
-          placeholder="••••••••"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          minLength={6}
-        />
-
-        <ForgotPassword />
-
-        <GetStartedButton type="submit" disabled={loading}>
-          {loading ? 'Creating account...' : 'Get started'}
-        </GetStartedButton>
-
-        <SocialSignUp />
-      </form>
-
-      <AlreadyHaveAccount />
-    </div>
+      <RegistrationSuccessModal
+        isOpen={showSuccess}
+        onContinue={() => {
+          setShowSuccess(false);
+          router.push('/homepages');
+        }}
+      />
+    </>
   );
 }
 
